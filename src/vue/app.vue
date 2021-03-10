@@ -1,6 +1,6 @@
 <template>
     <div>
-        <chess-board :moves="moves"></chess-board>
+        <chess-board></chess-board>
     </div>
 </template>
 
@@ -13,7 +13,6 @@ export default {
     },
     data(){
         return {
-            moves: [],
         };
     },
     computed: {
