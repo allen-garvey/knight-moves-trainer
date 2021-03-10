@@ -33,6 +33,9 @@
 
 <style lang="scss" module>
     $square-dimensions: 80px;
+    $border-dimensions: 4px;
+    $square-light: #f5e1b8;
+    $square-dark: #ba845f;
     
     .board {
         border: 1px solid #000;
@@ -45,14 +48,20 @@
     }
 
     .square {
-        background-color: #f5e1b8;
+        background-color: $square-light;
+        border: $border-dimensions solid $square-light;
         position: relative;
-        height: $square-dimensions;
-        width: $square-dimensions;
+        height: $square-dimensions - 2 * $border-dimensions;
+        width: $square-dimensions  - 2 * $border-dimensions;
+
+        &:hover {
+            border-color: magenta;
+        }
     }
 
     .squareDark {
-        background-color: #ba845f;
+        background-color: $square-dark;
+        border-color: $square-dark;
     }
 
     .piece {
