@@ -11,6 +11,15 @@
                 >
                     <use xlink:href="#queen-black-symbol" />
                 </svg>
+                <svg 
+                    xmlns="http://www.w3.org/2000/svg" 
+                    version="1.1" 
+                    viewBox="0 0 64.06 64"
+                    :class="[$style.knightWhite, $style.piece]" 
+                    v-if="((y - 1) * dimensions + x - 1) === knightSquare"
+                >
+                    <use xlink:href="#knight-white-symbol" />
+                </svg>
             </div>
         </div>
     </div>
@@ -55,6 +64,10 @@
 
     .queenBlack {
         height: 110px;
+    }
+
+    .knightWhite {
+        height: 96px;
     }
 </style>
 
