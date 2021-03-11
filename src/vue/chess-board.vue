@@ -1,7 +1,12 @@
 <template>
     <div :class="$style.board">
         <div v-for="y in dimensions" :key="y" :class="$style.row">
-            <div v-for="x in dimensions" :key="`${y}-${x}`" :class="squareStyle(x, y)">
+            <div 
+                v-for="x in dimensions" 
+                :key="`${y}-${x}`" 
+                :class="squareStyle(x, y)"
+                @click="squareClicked(x, y)"
+            >
                 <svg 
                     xmlns="http://www.w3.org/2000/svg" 
                     version="1.1" 
@@ -74,12 +79,18 @@
 <script>
 export default {
     props: {
+        knightSquare: {
+            type: Number,
+            required: true,
+        },
+        queenSquare: {
+            type: Number,
+            required: true,
+        }
     },
     data(){
         return {
             dimensions: 8,
-            queenSquare: 27,
-            knightSquare: 7
         };
     },
     computed: {
@@ -87,6 +98,13 @@ export default {
     methods: {
         coordinateNum(x, y){
             return (y - 1) * this.dimensions + x - 1;
+        },
+        squareClicked(x, y){
+            this.$emit('squareClicked', {
+                x,
+                y,
+                number: this.coordinateNum(x, y)
+            });
         },
         squareStyle(x, y){
             const isDark = x % 2 !== y % 2;

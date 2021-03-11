@@ -1,6 +1,10 @@
 <template>
     <div>
-        <chess-board></chess-board>
+        <chess-board
+            :knight-square="knightSquare"
+            :queen-square="queenSquare"
+            @square-clicked="squareClicked"
+        ></chess-board>
     </div>
 </template>
 
@@ -13,11 +17,16 @@ export default {
     },
     data(){
         return {
+            queenSquare: 27,
+            knightSquare: 7
         };
     },
     computed: {
     },
     methods: {
+        squareClicked(square){
+            this.knightSquare = square.number;
+        }
     }
 };
 </script>
