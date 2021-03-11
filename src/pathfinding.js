@@ -49,6 +49,27 @@ const queenSquares = (queenNumber) => {
     return ret;
 };
 
+const knightSquares = (knightNumber) => {
+    const {x: knightX, y: knightY} = numberToCoordinate(knightNumber);
+
+    return [
+        {x: knightX + 2, y: knightY + 1},
+        {x: knightX + 2, y: knightY - 1},
+        {x: knightX - 2, y: knightY + 1},
+        {x: knightX - 2, y: knightY - 1},
+        {x: knightX + 1, y: knightY + 2},
+        {x: knightX + 1, y: knightY - 2},
+        {x: knightX - 1, y: knightY + 2},
+        {x: knightX - 1, y: knightY - 2},
+    ]
+    .filter(({x, y}) => x >=0 && x < DIMENSIONS && y >=0 && y < DIMENSIONS)
+    .reduce((ret, {x, y}, {}) => {
+        ret[coordinateToNumber(x, y)] = true;
+        return ret;
+    });
+};
+
 export default {
-    queenSquares
+    queenSquares,
+    knightSquares,
 };

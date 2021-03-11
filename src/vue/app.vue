@@ -32,13 +32,16 @@ export default {
         queenSquares(){
             return pathfinding.queenSquares(this.queenSquare);
         },
+        knightSquares(){
+            return pathfinding.knightSquares(this.knightSquare);
+        },
     },
     methods: {
         squareClicked(square){
             if(square === this.knightSquare){
                 return;
             }
-            const isValidMove = !this.queenSquares[square];
+            const isValidMove = !this.queenSquares[square] && !!this.knightSquares[square];
             if(isValidMove){
                 this.knightSquare = square;
             }
