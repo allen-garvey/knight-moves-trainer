@@ -1,4 +1,4 @@
-# Knight Trainer
+# Knight Moves Trainer
 
 Chess training for knight moves based on an excersise by Ben Finegold as detailed in this video https://www.youtube.com/watch?v=SrQlpY_eGYU
 
@@ -18,4 +18,4 @@ Chess piece designs from [https://commons.wikimedia.org/wiki/File:Chess_Pieces_S
 
 ## License
 
-Knight Trainer is released under the MIT License. See license.txt for more details.
+Knight Moves Trainer is released under the MIT License. See license.txt for more details.
