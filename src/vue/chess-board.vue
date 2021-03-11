@@ -100,11 +100,7 @@ export default {
             return (y - 1) * this.dimensions + x - 1;
         },
         squareClicked(x, y){
-            this.$emit('squareClicked', {
-                x,
-                y,
-                number: this.coordinateNum(x, y)
-            });
+            this.$emit('squareClicked', this.coordinateNum(x, y));
         },
         squareStyle(x, y){
             const isDark = x % 2 !== y % 2;

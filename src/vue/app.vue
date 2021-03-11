@@ -10,6 +10,7 @@
 </template>
 
 <script>
+import pathfinding from '../pathfinding.js';
 import ChessBoard from './chess-board.vue';
 
 export default {
@@ -28,12 +29,22 @@ export default {
         numMoves(){
             return this.moves.length;
         },
+        queenSquares(){
+            return pathfinding.queenSquares(this.queenSquare);
+        },
     },
     methods: {
         squareClicked(square){
-            this.knightSquare = square.number;
+            if(square === this.knightSquare){
+                return;
+            }
+            const isValidMove = !this.queenSquares[square];
+            if(isValidMove){
+                this.knightSquare = square;
+            }
             this.moves.push({
-                number: square.number
+                number: square,
+                isValidMove,
             });
         }
     }
