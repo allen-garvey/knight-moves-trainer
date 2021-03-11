@@ -63,10 +63,10 @@ const knightSquares = (knightNumber) => {
         {x: knightX - 1, y: knightY - 2},
     ]
     .filter(({x, y}) => x >=0 && x < DIMENSIONS && y >=0 && y < DIMENSIONS)
-    .reduce((ret, {x, y}, {}) => {
+    .reduce((ret, {x, y}) => {
         ret[coordinateToNumber(x, y)] = true;
         return ret;
-    });
+    }, {});
 };
 
 export default {
