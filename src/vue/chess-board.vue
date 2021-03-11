@@ -7,7 +7,7 @@
                     version="1.1" 
                     viewBox="0 0 77 70.38"
                     :class="[$style.queenBlack, $style.piece]" 
-                    v-if="((y - 1) * dimensions + x - 1) === queenSquare"
+                    v-if="coordinateNum(x, y) === queenSquare"
                 >
                     <use xlink:href="#queen-black-symbol" />
                 </svg>
@@ -16,7 +16,7 @@
                     version="1.1" 
                     viewBox="0 0 64.06 64"
                     :class="[$style.knightWhite, $style.piece]" 
-                    v-if="((y - 1) * dimensions + x - 1) === knightSquare"
+                    v-if="coordinateNum(x, y) === knightSquare"
                 >
                     <use xlink:href="#knight-white-symbol" />
                 </svg>
@@ -85,6 +85,9 @@ export default {
     computed: {
     },
     methods: {
+        coordinateNum(x, y){
+            return (y - 1) * this.dimensions + x - 1;
+        },
         squareStyle(x, y){
             const isDark = x % 2 !== y % 2;
 
