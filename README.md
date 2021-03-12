@@ -1,6 +1,6 @@
 # Knight Moves Trainer
 
-Chess training for knight moves based on an excersise by Ben Finegold as detailed in this video https://www.youtube.com/watch?v=SrQlpY_eGYU
+Chess training for knight moves based on an excersise by Ben Finegold as detailed in these videos https://www.youtube.com/watch?v=9xzktzyGh9E&t=2841s and https://www.youtube.com/watch?v=SrQlpY_eGYU
 
 ## Dependencies
 
