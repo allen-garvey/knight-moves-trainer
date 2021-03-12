@@ -1,15 +1,4 @@
-const DIMENSIONS = 8;
-
-const numberToCoordinate = (number) => {
-    return {
-        x: number % DIMENSIONS,
-        y: Math.floor(number / DIMENSIONS)
-    };
-};
-
-const coordinateToNumber = (x, y) => {
-    return y * DIMENSIONS + x;
-};
+import { DIMENSIONS, numberToCoordinate, coordinateToNumber } from './coordinate.js';
 
 const queenSquares = (queenNumber) => {
     const ret = {
