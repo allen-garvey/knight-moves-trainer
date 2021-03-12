@@ -19,7 +19,6 @@ export default {
     },
     data(){
         return {
-            numMoves: 0,
             moves: [],
             queenSquare: 27,
             knightSquare: 7
