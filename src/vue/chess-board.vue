@@ -77,6 +77,8 @@
 </style>
 
 <script>
+import { DIMENSIONS, coordinateToNumber } from '../coordinate.js';
+
 export default {
     props: {
         knightSquare: {
@@ -90,14 +92,16 @@ export default {
     },
     data(){
         return {
-            dimensions: 8,
         };
     },
     computed: {
+        dimensions(){
+            return DIMENSIONS;
+        },
     },
     methods: {
         coordinateNum(x, y){
-            return (y - 1) * this.dimensions + x - 1;
+            return coordinateToNumber(x-1, y-1);
         },
         squareClicked(x, y){
             this.$emit('squareClicked', this.coordinateNum(x, y));
