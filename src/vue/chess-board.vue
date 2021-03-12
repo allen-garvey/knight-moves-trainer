@@ -56,6 +56,19 @@
         &:hover {
             border-color: magenta;
         }
+
+        &.squareTarget:before {
+            display: block;
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0.4;
+            background-color: red;
+            border-color: red;
+        }
     }
 
     .squareDark {
@@ -88,7 +101,11 @@ export default {
         queenSquare: {
             type: Number,
             required: true,
-        }
+        },
+        targetSquare: {
+            type: Number,
+            required: true,
+        },
     },
     data(){
         return {
@@ -112,6 +129,7 @@ export default {
             return {
                 [this.$style.square]: true,
                 [this.$style.squareDark]: isDark,
+                [this.$style.squareTarget]: this.coordinateNum(x, y) === this.targetSquare,
             };
         }
     }
