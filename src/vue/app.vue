@@ -6,16 +6,20 @@
             :queen-square="queenSquare"
             @square-clicked="squareClicked"
         ></chess-board>
+        <move-list :moves="moves"></move-list>
     </div>
 </template>
 
 <script>
+import { numberToMoveName } from '../coordinate.js';
 import pathfinding from '../pathfinding.js';
 import ChessBoard from './chess-board.vue';
+import MoveList from './move-list.vue';
 
 export default {
     components: {
         ChessBoard,
+        MoveList
     },
     data(){
         return {
@@ -45,7 +49,7 @@ export default {
                 this.knightSquare = square;
             }
             this.moves.push({
-                number: square,
+                move: numberToMoveName(square),
                 isValidMove,
             });
         }
